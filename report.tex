@@ -1,0 +1,165 @@
+% !TEX options=--shell-escape
+\documentclass[a4paper, 12pt]{article}
+\title{%
+	\bf{Title}
+	\\[1cm]
+		\large A thesis submitted to the Faculty of Science, Monash University in partial fulfilment of the requirements for the degree of Bachelor of Science (Honours)
+}
+\author{\Large{Adrea Snow}\\[3cm] School of Chemistry\\ Monash University\\April 2021\\[2cm]\\Supervisor: Assoc. Prof Ekaterina Pas}
+\date{}
+
+% General packages
+	\usepackage[utf8]{inputenc}
+	\usepackage[english]{babel}
+	\usepackage[T1]{fontenc}
+
+% For rotating pages to landscape
+	% \usepackage{pdflscape}
+	% \usepackage{rotating}
+
+% For cleaning up the TOC
+	% ads TOC, LOF, LOT to TOC
+	\usepackage{tocbibind}
+	%Puts dots in TOC
+	\usepackage{tocloft}
+	\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+	% to use, put the contents of the landscape page in a landscape environment; e.g. "\begin{landscape}  <content> \end{landscape} "
+
+	% disable to re-enable section numbering
+	% \setcounter{secnumdepth}{0}
+
+% Font packages
+	\usepackage{
+		times,
+		textcomp
+	}
+
+% Maths packages
+	\usepackage[normalem]{ulem}
+	\usepackage{
+		amsmath,
+		amssymb,
+		amsfonts,
+	}
+
+% Figure packages
+	\usepackage{
+		array,
+		graphicx,
+		wrapfig,
+		makecell,
+		siunitx
+	}
+
+% Table packages
+	\usepackage{
+		tabularx,
+		tabu,
+		float,
+		subcaption,
+		multirow,
+		color,
+		soul,
+		svg
+	}
+
+%disable warnings
+	\usepackage{silence}
+	\WarningFilter{latex}{Empty bibliography}
+	\WarningFilter{hyperref}{Token not allowed}  
+
+% Hyperlinking specifications
+	\usepackage{hyperref}
+	\hypersetup{colorlinks=true, linktoc=all, linkcolor=blue, citecolor=red, urlcolor=blue}
+
+% Referencing figures including names
+	\usepackage[capitalise, nameinlink, noabbrev]{cleveref}
+	% \crefname{scheme}{Scheme}{Schemes}
+	\AtBeginDocument{\renewcommand{\ref}{\cref}}
+
+% Insert PDF
+	% \usepackage[final]{pdfpages}
+
+%Chemistry Stuff
+	% Chemistry equation typesetting stuff
+	\usepackage[version=4]{mhchem}
+	% Chemistry "schemes"
+	% \usepackage{chemscheme}
+	% Chemistry figures and molecules 
+	% \usepackage{chemfig}
+
+% Figure, Shceme and Table counters
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+% Margins and Layout
+	\usepackage[left=3.5cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+	% Prevent hypenating words
+	\usepackage[none]{hyphenat}
+	% No paragraph indenting
+	\reversemarginpar
+	\setlength\parindent{0pt}
+	% 2x Linespacing
+	\renewcommand{\baselinestretch}{2}
+
+% Personal commands
+	\renewcommand{\bf}{\textbf}
+	\renewcommand{\it}{\textit}
+	\renewcommand{\epsilon}{\varepsilon}
+	\newcommand{\e}[2]{\num{#1d#2}}
+	\newcommand{\ra}{$\rightarrow$ }
+	\renewcommand{\aa}{\textup{\AA} } % Angstrom
+	\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]}
+	% use cdots for unit separation
+	\sisetup{
+  	inter-unit-product=\ensuremath{{\cdot}},
+	}
+	\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
+
+
+% Review and notes
+	\usepackage[textsize=footnotesize]{todonotes}
+	\setlength{\marginparwidth}{3.5cm}
+	% silence specific warnings from output
+	\usepackage{silence}
+		% These are the warnings to slience
+		\WarningFilter{latex}{Marginpar on page}
+		\WarningFilter{todonotes}{The length marginparwidth}
+	% creates a \note{} command that makes the contents pink
+	\newcommand{\note}[1]{\color{magenta}#1\color{black}}
+	% \newcommand{\note}{\todo[color=magenta]}
+	\newcommand{\review}{\todo[color=cyan]}
+	\reversemarginpar
+
+% Referencing - choose style 
+	\input{acs}
+
+\begin{document}
+	%TC:ignore % This tells the word counter to ignore this section
+	\pagenumbering{Roman} % uses roman numerls for front matter page numbering
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	\listoffigures
+	\newpage
+	\listoftables
+	\newpage
+	% \input{abstract}
+	\newpage
+	% \input{acknowledgements}
+	\newpage
+	\cleardoublepage\pagenumbering{arabic} % uses numerical numbering for main matter page numbering
+	%TC:endignore
+	\input{introduction}
+	\newpage
+	% \input{method}
+	\newpage
+	% \input{results}
+	\newpage
+	% \input{conclusion}
+	\newpage
+	\addcontentsline{toc}{section}{References} % changes the name of the bibliography to "references"
+	\printbibliography[title={References}]
+\end{document}

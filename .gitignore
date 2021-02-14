@@ -274,3 +274,8 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Mac specific
+*.sublime-project
+*.sublime-workspace
+.DS_Store

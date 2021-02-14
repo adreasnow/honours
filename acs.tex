@@ -1,0 +1,19 @@
+% !TEX root = report.tex
+\usepackage[style=chem-acs, articletitle=true, doi=true, backend=biber]{biblatex}
+\usepackage{
+	url,
+	csquotes
+}
+\addbibresource{~/library.bib}
+\renewcommand{\cite}{\autocite}
+\newcommand{\citeay}[1]{\citeauthor{#1}\cite{#1}}
+\newcommand{\citety}[1]{\citetitle{#1}\cite{#1}}
+
+\DeclareCiteCommand{\citeyear}
+    {}
+    {\bibhyperref{\printdate}}
+    {\multicitedelim}
+    {}
+% \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\thefootnote}{\Roman{footnote}}
+\AtBeginDocument{\renewcommand{\refname}{\fontsize{14}{4}\selectfont {References}}}
