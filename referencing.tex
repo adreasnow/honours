@@ -1,0 +1,21 @@
+% !TEX root = report.tex
+% sets up the referencing engine with a few important things. I personally prefere to have article titles and a doi in my references for ease of perousal, but this should be discussed with your supervisor. You can easily remove those sections from the command.
+
+% For Tetrahedron, Analytical Chemistry, or any other ACS hournal - chem-acs
+% For Angewandte Chemie (and Wiley journals) - chem-angew
+% For any RSC journals - chem-rsc
+% For Biochemistry (and some ACS journals) - chem-biochem
+
+% Check with the journal itself as to any referencing specifics that you'll need, mor einfo about the bibtex style customisations for chemistry can be found here: https://mirror.aarnet.edu.au/pub/CTAN/macros/latex/contrib/biblatex-contrib/biblatex-chem/biblatex-chem.pdf 
+
+\usepackage[style=chem-acs, articletitle=true, doi=true, backend=biber]{biblatex}
+\usepackage{
+	url,
+	csquotes
+}
+% add in your bibliography file
+% \addbibresource{~/library.bib}
+\addbibresource{library.bib}
+
+% roman numerals for footnotes
+\renewcommand{\thefootnote}{\Roman{footnote}}

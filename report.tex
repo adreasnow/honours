@@ -1,6 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
 \title{%
-	\bf{Title}
+	\bf{Report Title}
 	\\[1cm]
 		\large A thesis submitted to the Faculty of Science, Monash University in partial fulfilment of the requirements for the degree of Bachelor of Science (Honours)
 }
@@ -19,14 +19,10 @@
 
 % For cleaning up the TOC
 	% ads TOC, LOF, LOT to TOC
-	\usepackage{tocbibind}
+	\usepackage[numbib]{tocbibind}
 	%Puts dots in TOC
 	\usepackage{tocloft}
 	\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-	
-
-	% disable to re-enable section numbering
-	% \setcounter{secnumdepth}{0}
 
 % Font packages
 	\usepackage{
@@ -68,27 +64,27 @@
 	\WarningFilter{latex}{Empty bibliography}
 	\WarningFilter{hyperref}{Token not allowed}  
 
-% Hyperlinking specifications
+% Hyperlinking specifications and colours
 	\usepackage{hyperref}
 	\hypersetup{colorlinks=true, linktoc=all, linkcolor=blue, citecolor=red, urlcolor=blue}
 
 % Referencing figures including names
 	\usepackage[capitalise, nameinlink, noabbrev]{cleveref}
-	% \crefname{scheme}{Scheme}{Schemes}
 	\AtBeginDocument{\renewcommand{\ref}{\cref}}
 
-% Insert PDF
+% Inserting PDF files
 	% \usepackage[final]{pdfpages}
 
 %Chemistry Stuff
 	% Chemistry equation typesetting stuff
-	\usepackage[version=4]{mhchem}
-	% Chemistry "schemes"
-	% \usepackage{chemscheme}
+		\usepackage[version=4]{mhchem}
+	% Chemistry "\begin{scheme}" environment
+		\usepackage{chemscheme}
+		\crefname{scheme}{Scheme}{Schemes}
 	% Chemistry figures and molecules 
-	% \usepackage{chemfig}
+		\usepackage{chemfig}
 
-% Figure, Shceme and Table counters
+% puts section numbering into figure counters, e.g. "Figure 1.1" instead of "Figure 3"
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
@@ -111,10 +107,11 @@
 	\newcommand{\ra}{$\rightarrow$ }
 	\renewcommand{\aa}{\textup{\AA} } % Angstrom
 	\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]}
-	% use cdots for unit separation
+	% use cdots for unit separation with the SIunitx package
 	\sisetup{
   	inter-unit-product=\ensuremath{{\cdot}},
 	}
+	%SI unit declarations
 	\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
 
 
@@ -132,11 +129,11 @@
 	\newcommand{\review}{\todo[color=cyan]}
 	\reversemarginpar
 
-% Referencing - choose style 
-	\input{acs}
+% Referencing
+	\input{referencing}
 
 \begin{document}
-	%TC:ignore % This tells the word counter to ignore this section
+	%TC:ignore % This tells the word counter to ignore from here
 	\pagenumbering{Roman} % uses roman numerls for front matter page numbering
 	\maketitle
 	\newpage
@@ -151,7 +148,7 @@
 	\input{acknowledgements}
 	\newpage
 	\cleardoublepage\pagenumbering{arabic} % uses numerical numbering for main matter page numbering
-	%TC:endignore
+	%TC:endignore % This tells the word counter to start counting form here
 	\input{introduction}
 	\newpage
 	\input{method}
@@ -160,6 +157,5 @@
 	\newpage
 	\input{conclusion}
 	\newpage
-	\addcontentsline{toc}{section}{References} % changes the name of the bibliography to "references"
-	\printbibliography[title={References}]
+	\printbibliography[title={References},heading=bibnumbered] % prints the references section, titled "References" with a section number
 \end{document}
