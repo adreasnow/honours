@@ -79,10 +79,10 @@
 	% Chemistry equation typesetting stuff
 		\usepackage[version=4]{mhchem}
 	% Chemistry "\begin{scheme}" environment
-		\usepackage{chemscheme}
-		\crefname{scheme}{Scheme}{Schemes}
+		% \usepackage{chemscheme}
+		% \crefname{scheme}{Scheme}{Schemes}
 	% Chemistry figures and molecules 
-		\usepackage{chemfig}
+		% \usepackage{chemfig}
 
 % puts section numbering into figure counters, e.g. "Figure 1.1" instead of "Figure 3"
 \usepackage{chngcntr}
@@ -143,19 +143,19 @@
 	\newpage
 	\listoftables
 	\newpage
-	\input{abstract}
+	% \input{abstract}
 	\newpage
-	\input{acknowledgements}
+	% \input{acknowledgements}
 	\newpage
 	\cleardoublepage\pagenumbering{arabic} % uses numerical numbering for main matter page numbering
 	%TC:endignore % This tells the word counter to start counting form here
 	\input{introduction}
 	\newpage
-	\input{method}
+	% \input{method}
 	\newpage
-	\input{results}
+	% \input{results}
 	\newpage
-	\input{conclusion}
+	% \input{conclusion}
 	\newpage
 	\printbibliography[title={References},heading=bibnumbered] % prints the references section, titled "References" with a section number
 \end{document}
