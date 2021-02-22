@@ -279,3 +279,6 @@ TSWLatexianTemp*
 *.sublime-project
 *.sublime-workspace
 .DS_Store
+
+# project specific
+report.pdf
