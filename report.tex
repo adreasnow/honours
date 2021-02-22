@@ -1,10 +1,10 @@
 \documentclass[a4paper, 12pt]{article}
-\title{%
-	\bf{Report Title}
-	\\[1cm]
-		\large A thesis submitted to the Faculty of Science, Monash University in partial fulfilment of the requirements for the degree of Bachelor of Science (Honours)
+\title{
+	\includegraphics[width=0.4\textwidth]{Figures/monashLogo.pdf}~
+	\\[2cm]
+	Report Title
 }
-\author{\Large{Adrea Snow}\\[3cm] School of Chemistry\\ Monash University\\April 2021\\[2cm]\\Supervisor: Assoc. Prof Ekaterina Pas}
+\author{\Large{Adrea Snow}\\\Large{Supervisor: A/Prof. Ekaterina Pas}\\[3cm]Monash School of Chemistry\\[2cm]April 2021}
 \date{}
 
 % General packages
@@ -132,6 +132,8 @@
 % Referencing
 	\input{referencing}
 
+\newcounter{romancounter}
+
 \begin{document}
 	%TC:ignore % This tells the word counter to ignore from here
 	\pagenumbering{Roman} % uses roman numerls for front matter page numbering
@@ -143,19 +145,26 @@
 	\newpage
 	\listoftables
 	\newpage
-	% \input{abstract}
+	\input{abstract}
 	\newpage
-	% \input{acknowledgements}
-	\newpage
+	\setcounter{romancounter}{\number\value{page}}%
 	\cleardoublepage\pagenumbering{arabic} % uses numerical numbering for main matter page numbering
 	%TC:endignore % This tells the word counter to start counting form here
 	\input{introduction}
-	\newpage
+	% \newpage
 	% \input{method}
-	\newpage
+	% \newpage
 	% \input{results}
-	\newpage
+	% \newpage
 	% \input{conclusion}
 	\newpage
+
 	\printbibliography[title={References},heading=bibnumbered] % prints the references section, titled "References" with a section number
+	% \newpage
+	% \pagenumbering{Roman} 
+	% \setcounter{page}{\number\value{romancounter}}
+	% \input{acknowledgements}
+	% \newpage
+	% \addcontentsline{toc}{section}{Appendix}
+	% \input{appendix}
 \end{document}
