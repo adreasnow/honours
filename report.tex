@@ -90,7 +90,7 @@
 \counterwithin{table}{section}
 
 % Margins and Layout
-	\usepackage[left=3.5cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+	\usepackage[left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 	% Prevent hypenating words
 	\usepackage[none]{hyphenat}
 	% No paragraph indenting
@@ -99,20 +99,25 @@
 	% 2x Linespacing
 	\renewcommand{\baselinestretch}{2}
 
+% allows for spaces after a new command
+	\usepackage{xspace}
+
 % Personal commands
 	\renewcommand{\bf}{\textbf}
 	\renewcommand{\it}{\textit}
 	\renewcommand{\epsilon}{\varepsilon}
-	\newcommand{\e}[2]{\num{#1d#2}}
-	\newcommand{\ra}{$\rightarrow$ }
-	\renewcommand{\aa}{\textup{\AA} } % Angstrom
-	\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]}
+	\newcommand{\ra}{$\rightarrow$\xspace}
+	\renewcommand{\aa}{\textup{\AA}} % Angstrom
+	\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]\xspace}
+	\newcommand{\pka}{$pK_a$\xspace}
+
 	% use cdots for unit separation with the SIunitx package
 	\sisetup{
   	inter-unit-product=\ensuremath{{\cdot}},
 	}
 	%SI unit declarations
 	\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
+	\DeclareSIUnit\dc{\celsius}
 
 
 % Review and notes
