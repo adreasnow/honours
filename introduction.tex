@@ -1,48 +1,97 @@
 % !TEX root = report.tex
 \section{Introduction and Literature Review}
+\subsection{parameterisation}
 
-\subsection{protic ionic liquids}
-- {\pka}s are based on proton lability in aqueous environments and aren't representative of the dynamics in bulk IL solution.
+\ce{LigParGen -> pdb + prm ->[psfgen] fftk ->[optimise params] fftk ->[manually update] il .ff}\\
+\ce{LigParGen -> .itp + .lmp ->[convertLigParGen.py] il .ff}
 
-- Hammett method for determining \pka
+\subsection{QM}
+\subsubsection{Extrapolation to CBS}
+Where $X$ and $Y$ are the `cardinal' numbers of the basis used to extrapolate with (e.g. $X=3$ for aug-cc-pVTZ, $Y=4$ for aug-cc-pVQZ) \cite{Halkier1998}
+
+-- only works for correlation consistent basis sets, due to systematic improvements as $\zeta$ is increased
+$3\to4\zeta$.
+
+-- the cardinal numbers $Y$ and $X$ should be one apart.
+
+	-- if these numbers are too low, then they don't contain enough information about the asymptotic convergence of the correlation energy to be particularly useful, hence introducing a large amount of energy.
+
+-- \ref{eqn:mp2cbs} is an extrapolation of $3\to4\zeta$, to identify the CBS energy, where \ref{eqn:ccsdtcbs} is a CCSD(T) correction to the MP2/CBS energy
+
+\begin{align}
+E(MP2/CBS)&=\frac{X^3E_X^{MP2}-Y^3E_Y^{MP2}}{X^3-Y^3}\label{eqn:mp2cbs}\\
+E(CCSD(T)/CBS)&=E(MP2/CBS) + \big[E(CCSD(T)/DZ) - E(MP2/DZ)\big]\label{eqn:ccsdtcbs}
+\end{align}
+
+-- Seems to have errors of $\SI{\sim13}{\kjmol}$ for internal energy at $3\to4\zeta$, and I'm not sure about the CCSD(T) corrections. I'm not sure how the internal energy error translates to intermolecular energy errors.
+
+\subsection{ILs}
+
+\subsubsection{imidazolium ILs}
+-- in \ce{C2mim}, hydrogen bonding preferentially occurs with the \ce{C2} hydrogen, and above/below the imidazolium ring, over the \ce{C4} and \ce{C5} hydrogens \cite{Thar2009}
+
+\subsubsection{protic ionic liquids}
+-- {\pka}s are based on proton lability in aqueous environments and aren't representative of the dynamics in bulk IL solution.
+
+-- Hammett method for determining \pka
 $$
-H_0=pK(I)_{aq}+\log([I]_s/[IH]_s)
+H_0=pK(I)_{aq}+\log\Bigg(\frac{[I^-]_s}{[IH]_s}\Bigg)\label{eqn:hammetacidity}
 $$
 
-- \pka can also be determined by titration
+-- \pka can also be determined by titration
 
-- ILs can have lots of reacting species and can form lots of weird byproducts, so a ``pure'' IL is typically considered to be one which has $<1\%$ neutral species. Higher than this can be considered mixtures of IL and neutral species
+-- ILs can have lots of reacting species and can form lots of weird byproducts, so a ``pure'' IL is typically considered to be one which has $<1\%$ neutral species. Higher than this can be considered mixtures of IL and neutral species
 
-- aqueous \pka differences ($pK_A(base)-pK_a(acid)$) can be suggestive of how complete the proton transfer is in a PIL
+-- aqueous \pka differences ($pK_A(base)-pK_a(acid)$) can be suggestive of how complete the proton transfer is in a PIL
 
 - PILs with a $\Delta pK_a>8$ have nearly ideal Walden behaviour. \cite{Yoshizawa2003}?
 
-- Walden plot of ionicity? one metric of how ionic a salt is - $\log(\text{equivalent conductivity})$vs $\log(\frac{1}{\eta})$
+-- Walden plot of ionicity? one metric of how ionic a salt is - $\log(\text{equivalent conductivity})$vs $\log(\frac{1}{\eta})$
 
-- The strength of the PIL acid has more of an impact on the ionicity than the size, with low \pka values leading to higher ionicity - a measure of how ionic a salt is.
+--The strength of the PIL acid has more of an impact on the ionicity than the size, with low \pka values leading to higher ionicity - a measure of how ionic a salt is.
 
-- Liquid state has high viscosity, then as the temperature decreases you hit the melting point ($T_m$) where the liquid turns into a `plastic crystal' which is an amorphous non-crystalline solid. we keep decreasing the temperature, we hit the glass transition temperature ($T_g$) , corresponding to a maximum heat capacity, where the plastic crystal can fully crystallise.
+-- Liquid state has high viscosity, then as the temperature decreases you hit the melting point ($T_m$) where the liquid turns into a `plastic crystal' which is an amorphous non-crystalline solid. we keep decreasing the temperature, we hit the glass transition temperature ($T_g$) , corresponding to a maximum heat capacity, where the plastic crystal can fully crystallise.
 In ILs, as the temperature decreases, the viscosity will gradually decrease, but won't have a definite melting point, it will just become more and more viscous.
 
-- the glass transition temperature ($T_g$) is a ``qualitative signature'' of the ion mobility in the IL (10.1002/chem.200400817)
+-- the glass transition temperature ($T_g$) is a ``qualitative signature'' of the ion mobility in the IL (10.1002/chem.200400817)
 
-- Unsurprisingly, more hydrogen bonding means higher viscosity, as does more vdW interactions
+-- Unsurprisingly, more hydrogen bonding means higher viscosity, as does more vdW interactions
 
-- ion size doesn't affect imidazolium ILs that much (10.1021/ic951325x)
+-- ion size doesn't affect imidazolium ILs that much (10.1021/ic951325x)
 
-- The ability for PILs to catalyse a reaction through a Br{\o}nsted acid activated pathways was strongly correlated to the acid strength of the IL pair \cite{Greaves2008a}
+-- The ability for PILs to catalyse a reaction through a Br{\o}nsted acid activated pathways was strongly correlated to the acid strength of the IL pair \cite{Greaves2008a}
+
 	-- The acidity seems to be of the IL pair and not of the acidic component alone
+
 	-- when using the same cation, the basicity of the anion (based on the \pka) dictated the relative acidity, and thus the catalytic ability of the ion pair (tested with [bbim] and [Hbim] and \cite{Palimkar2003}
+
 	-- Furthers that the $\Delta pK_a$ can be used as a relative indicator of the catalytic potential of a PIL
+
+-- \il{HBIm}{BF4} has also been used to catalyse condensation reactions with 85-94\% yield at \SI{100}{\dc} (10.1021/j100227a003)
+
+\subsubsection{QM ILs}
+-- Dispersion is important and can account for between 8 and 15\% of the interaction energy (\SI{-28} to \SI{-59}{\kjmol})\cite{Izgorodina2014,Bernard2010}
+	-- in terms of dispersion effects; Imidazolium > pyrrolidinium > chloride/bromide
+
+-- This increases as you add more ion pairs, with four ion pairs increasing the dispersion interactions to 11-28\% (\SI{-68} to \SI{-81}{\kjmol})\cite{Izgorodina2014}
+
+-- M062X\cite{Zhao2008} and SRS-MP2\cite{Tan2017} highly recommended \cite{Izgorodina2017,Tan2017} 
+
+-- Many body effects
+
+	-- FMO allows for the ions to be calculated independently and for interaction energies to be iteratively accounted for. FMO2 allows for 2-body interactions, FMO3 allows for 3-body interactions.\cite{Fedorov2017}
+
+	-- FMO3-MP2 for interaction energies of accuracy \SI{0.2}{\kjmol}; \SI{<2}{\kjmol} for FMO2-MP2\cite{Izgorodina2012}
+
 
 \subsection{cyclisation of aminchalcone}
 
-\cite{Du} showed \il{HBIm}{CF3SO3} to be the best for amine addition to chalcone, however this was in an aqueous environment. This used the IL as a Br{\o}nsted acid\\
+--\cite{Du} showed \il{HBIm}{CF3SO3} to be the best for amine addition to chalcone, however this was in an aqueous environment. This used the IL as a Br{\o}nsted acid\\
 
-\cite{Zheng2013} showed that piperidine as a Lewis base with \ce{KOH} was exceptionally efficient at converting the aminochalcone to the cyclised product (>99\% yield r.t.)
+--\cite{Zheng2013} showed that piperidine as a Lewis base with \ce{KOH} was exceptionally efficient at converting the aminochalcone to the cyclised product (>99\% yield r.t.)
 
-I'm guessing that this was adding in to the ketone, withdrawing electron density from the $\alpha,\beta$ double bond, making it more electrophilic, then the \ce{KOH} came through and mopped up the mopped up the proton form the resulting \ce{RNH3+}\\
+--I'm guessing that this was adding in to the ketone, withdrawing electron density from the $\alpha,\beta$ double bond, making it more electrophilic, then the \ce{KOH} came through and mopped up the mopped up the proton form the resulting \ce{RNH3+}\\
 
-\cite{Bunce2011} synthesised the product and made the flavone using just conc. \ce{HCl}
+--\cite{Bunce2011} synthesised the product and made the flavone using just conc. \ce{HCl}
 
-Would be activation by protonating the carbonyl, or the $\alpha$ site. according to the paper, these are both valid pathway
+--Would be activation by protonating the carbonyl, or the $\alpha$ site. according to the paper, these are both valid pathway

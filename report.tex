@@ -66,7 +66,7 @@
 
 % Hyperlinking specifications and colours
 	\usepackage{hyperref}
-	\hypersetup{colorlinks=true, linktoc=all, linkcolor=blue, citecolor=red, urlcolor=blue}
+	\hypersetup{colorlinks=true, linktoc=all, linkcolor=blue, citecolor=blue, urlcolor=blue}
 
 % Referencing figures including names
 	\usepackage[capitalise, nameinlink, noabbrev]{cleveref}
@@ -118,6 +118,7 @@
 	%SI unit declarations
 	\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
 	\DeclareSIUnit\dc{\celsius}
+	\DeclareSIUnit\eh{\hartree}
 
 
 % Review and notes
@@ -143,14 +144,14 @@
 	%TC:ignore % This tells the word counter to ignore from here
 	\pagenumbering{Roman} % uses roman numerls for front matter page numbering
 	\maketitle
-	\newpage
-	\tableofcontents
-	\newpage
-	\listoffigures
-	\newpage
-	\listoftables
-	\newpage
-	\input{abstract}
+	% \newpage
+	% \tableofcontents
+	% \newpage
+	% \listoffigures
+	% \newpage
+	% \listoftables
+	% \newpage
+	% \input{abstract}
 	\newpage
 	\setcounter{romancounter}{\number\value{page}}%
 	\cleardoublepage\pagenumbering{arabic} % uses numerical numbering for main matter page numbering
@@ -162,8 +163,8 @@
 	% \input{results}
 	% \newpage
 	% \input{conclusion}
+	%TC:ignore % This tells the word counter to ignore from here
 	\newpage
-
 	\printbibliography[title={References},heading=bibnumbered] % prints the references section, titled "References" with a section number
 	% \newpage
 	% \pagenumbering{Roman} 
@@ -172,4 +173,5 @@
 	% \newpage
 	% \addcontentsline{toc}{section}{Appendix}
 	% \input{appendix}
+	%TC:endignore % This tells the word counter to start counting form here
 \end{document}
