@@ -1,2 +1,172 @@
 % !TEX root = report.tex
 \section{Experimental Methodology}
+\subsection{MD}
+
+\todo{MD in general\cite{Cramer2004}}
+\centerline{\#\#\#\# MD \#\#\#\#} \cite{Cramer2004}
+-- Even at 0K, a molecule will sample a range of structures due to ZPVE
+
+-- The ensemble are whatever variables are being held constant (NVP/NPT)
+
+-- Phase space is the n-dimensional space that encompasses all degrees of freedom and all momenta of particles within a system. Particles are described as having 6 coordinates in phase space $X(q,p)=(x,y,z,p_x,p_y,p_z)$.
+
+-- Given that phase space encompasses the position and momenta of every particle in the system, it is possible to determine how the particles will move relative to their current phase space coordinates.
+
+-- MD utilises this to simulate the behaviour of the system over time.
+
+------------------------------------------------------------------------------
+-- structure-property relationship of chemistry
+
+-- sampling a system over time to obtain representative data
+
+-- utilising many possible states of the system and their relative energies to determine the expectation values of the properties of the system
+
+\todo{drude}
+-- "charge on a spring" model. Adds additional charged particles (oscillators) to the centre of each atom, that are attached by a spring, mimicking the behaviour of physical dipoles and distorting the electron density.
+
+-- The dipole is between the atom centre which has the partial charge of the atom ($-q_D$) as determined by partitioning and the Drude particle, which is free floating on a spring and has charge $+q_D$
+
+-- $q_D$ is calculated using the atomic polarisability ($\alpha$) and the harmonic oscillator constant as such:
+
+\begin{align}
+\alpha=\frac{q_D^2}{k_D}\label{eqn:drude}
+\end{align}
+
+-- force constants for the Drude oscillator are fixed for all atom types at $500-\SI{1000}{\kcalmol}$
+
+\todo{charge scaling/\kij}
+-- when using force fields that utilise partial charges for LJ interactions, since the partial charges will include effects for dispersion, which are now being explicitly modelled using the Drude oscillator, it's necessary to remove a certain amount of charge from the charge of the atom. This is the \kij parameter and is calculated using SAPT to obtain the ratio of 
+
+\ce{LigParGen -> pdb + prm ->[psfgen] fftk ->[optimise params] fftk ->[manually update] il .ff}\\
+\ce{LigParGen -> .itp + .lmp ->[convertLigParGen.py] il .ff}
+
+\subsubsection{MD of ILs}
+
+\subsection{QM}
+\todo{QM in general}
+\todo{Introduce methods (HF/MP2/DFT)}
+\todo{Introduce basis sets}
+\todo{dispersion corrections}
+
+
+\subsubsection{Extrapolation to CBS}
+Where $X$ and $Y$ are the `cardinal' numbers of the basis used to extrapolate with (e.g. $X=3$ for aug-cc-pVTZ, $Y=4$ for aug-cc-pVQZ) \cite{Halkier1998}
+
+-- only works for correlation consistent basis sets, due to systematic improvements as $\zeta$ is increased
+$3\to4\zeta$.
+
+-- the cardinal numbers $Y$ and $X$ should be one apart.
+
+	-- if these numbers are too low, then they don't contain enough information about the asymptotic convergence of the correlation energy to be particularly useful, hence introducing a large amount of error.
+
+-- \ref{eqn:mp2cbs} is an extrapolation of $3\to4\zeta$, to identify the CBS energy, where \ref{eqn:ccsdtcbs} is a CCSD(T) correction to the MP2/CBS energy
+
+\begin{align}
+E(MP2/CBS)&=\frac{X^3E_X^{MP2}-Y^3E_Y^{MP2}}{X^3-Y^3}\label{eqn:mp2cbs}\\
+E(CCSD(T)/CBS)&=E(MP2/CBS) + \big[E(CCSD(T)/DZ) - E(MP2/DZ)\big]\label{eqn:ccsdtcbs}
+\end{align}
+
+-- Seems to have errors of $\SI{\sim13}{\kjmol}$ for internal energy at $3\to4\zeta$, and I'm not sure about the CCSD(T) corrections. I'm not sure how the internal energy error translates to intermolecular energy errors.
+
+\subsection{ILs}
+
+-- Can be thought of through the context of two ideas:
+
+  -- The substance is a liquid ($t_m$ and/or $t_g < \SI{100}{\dc}$ )
+
+  -- Contains ions and exhibits ionic conductivity
+
+\subsubsection{imidazolium ILs}
+-- in \ce{C2mim}, hydrogen bonding preferentially occurs with the \ce{C2} hydrogen, and above/below the imidazolium ring, over the \ce{C4} and \ce{C5} hydrogens \cite{Thar2009}
+
+\subsubsection{protic ionic liquids}
+
+\centerline{\#\#\#\# How Ionic is the IL \#\#\#\#}
+
+-- ILs can have lots of reacting species and can form lots of weird byproducts, so a ``pure'' IL is typically considered to be one which has $<1\%$ neutral species. Higher than this can be considered mixtures of IL and neutral species. \cite{Kar2019} This also extends to the degree of proton transfer in the IL, The species must be $> 99\%$ to the right of \ref{eqn:dissociation}
+
+\begin{align}
+\ce{HA + B <=> [BH]+ + B-}\label{eqn:dissociation}
+\end{align}
+
+-- aqueous \pka differences ($pK_A(base)-pK_a(acid)$) can be suggestive of how complete the proton transfer is in a PIL
+
+- PILs with a $\Delta pK_a>8$ have nearly ideal Walden behaviour. \cite{Yoshizawa2003}?
+
+-- Walden plot of ionicity? one metric of how ionic a salt is - $\log(\text{molar conductivity})$vs $\log(\frac{1}{\eta})$
+
+	-- $\frac{1}{\eta}=\text{fluidity}$
+
+	-- empirical means of qualitatively describing the likely degree of proton-transfer
+
+--The strength of the PIL acid has more of an impact on the ionicity than the size, with low \pka values leading to higher ionicity - a measure of how ionic a salt is.
+
+-- Liquid state has high viscosity, then as the temperature decreases you hit the melting point ($T_m$) where the liquid turns into a `plastic crystal' which is an amorphous non-crystalline solid. we keep decreasing the temperature, we hit the glass transition temperature ($T_g$) , corresponding to a maximum heat capacity, where the plastic crystal can fully crystallise.
+In ILs, as the temperature decreases, the viscosity will gradually decrease, but won't have a definite melting point, it will just become more and more viscous.
+
+-- the glass transition temperature ($T_g$) is a ``qualitative signature'' of the ion mobility in the IL (10.1002/chem.200400817)
+
+-- Unsurprisingly, more hydrogen bonding means higher viscosity, as does more vdW interactions
+
+-- ion size doesn't affect imidazolium ILs that much (10.1021/ic951325x)
+
+\centerline{\#\#\#\# Acidity \#\#\#\#}
+
+-- {\pka}s are based on proton lability in aqueous environments and aren't representative of the proton dynamics in bulk IL solution. using aqueous {\pka}s results in proton dissociations that are "orders of magnitude lower than one would predict"\cite{Kar2019}
+
+-- Hammett method for determining \pka
+\begin{gather}
+	H_0=pK(I)_{aq}+\log\Bigg(\frac{[I^-]_s}{[IH]_s}\Bigg)\label{eqn:hammetacidity}
+\end{gather}
+
+-- \pka can also be determined by titration
+
+-- The acidity seems to be of the IL pair and not of the acidic component alone \cite{Greaves2008a}
+
+-- when using the same cation, the basicity of the anion (based on the \pka) dictated the relative acidity, and thus the catalytic ability of the ion pair (tested with [bbim] and [Hbim] and \cite{Palimkar2003}
+
+\centerline{\#\#\#\# Catalytically \#\#\#\#}
+
+-- The ability for PILs to catalyse a reaction through a Br{\o}nsted acid activated pathways was strongly correlated to the acid strength of the IL pair \cite{Greaves2008a}
+
+	-- Furthers that the $\Delta pK_a$ can be used as a relative indicator of the catalytic potential of a PIL \cite{Palimkar2003}
+
+-- \il{HBIm}{BF4} has also been used to catalyse condensation reactions with 85-94\% yield at \SI{100}{\dc} (10.1021/j100227a003)
+
+\subsubsection{QM ILs}
+-- Dispersion is important and can account for between 8 and 15\% of the interaction energy (\SI{-28} to \SI{-59}{\kjmol})\cite{Izgorodina2014,Bernard2010}
+	-- in terms of dispersion effects; Imidazolium > pyrrolidinium > chloride/bromide
+
+-- This increases as you add more ion pairs, with four ion pairs increasing the dispersion interactions to 11-28\% (\SI{-68} to \SI{-81}{\kjmol})\cite{Izgorodina2014}
+
+-- M062X\cite{Zhao2008} and SRS-MP2\cite{Tan2017} highly recommended \cite{Izgorodina2017,Tan2017} 
+
+-- Many body effects
+
+	-- FMO allows for the ions to be calculated independently and for interaction energies to be iteratively accounted for. FMO2 allows for 2-body interactions, FMO3 allows for 3-body interactions.\cite{Fedorov2017}
+
+	-- FMO3-MP2 for interaction energies of accuracy \SI{0.2}{\kjmol}; \SI{<2}{\kjmol} for FMO2-MP2\cite{Izgorodina2012}
+
+\begin{align}
+E_{FMO1}&=\sum_I^NE_I\label{eqn:fmo1}\\
+E_{FMO2}&=E_{FMO1}+\sum_{I>J}^N(E_{IJ}-E_I-E_J)\label{eqn:fmo2}\\
+E_{FMO3}&=E_{FMO2}+\sum_{I>J>K}^N
+\begin{bmatrix}
+(E_{IJK}-E_I-E_J-E_K)-(E_{IJ}-E_I-E_J)\\
+-(E_{JK}-E_J-E_K)-(E_{IK}-E_K-E_I)
+\end{bmatrix}\label{eqn:fmo3}
+\end{align}
+
+-- allows for molecular fragments to be added to scale linearly, rather than 
+
+\subsection{cyclisation of aminchalcone}
+
+--\cite{Du} showed \il{HBIm}{CF3SO3} to be the best for amine addition to chalcone, however this was in an aqueous environment. This used the IL as a Br{\o}nsted acid\\
+
+--\cite{Zheng2013} showed that piperidine as a Lewis base with \ce{KOH} was exceptionally efficient at converting the aminochalcone to the cyclised product (>99\% yield r.t.)
+
+--I'm guessing that this was adding in to the ketone, withdrawing electron density from the $\alpha,\beta$ double bond, making it more electrophilic, then the \ce{KOH} came through and mopped up the mopped up the proton form the resulting \ce{RNH3+}\\
+
+--\cite{Bunce2011} synthesised the product and made the flavone using just conc. \ce{HCl}
+
+--Would be activation by protonating the carbonyl, or the $\alpha$ site. according to the paper, these are both valid pathway

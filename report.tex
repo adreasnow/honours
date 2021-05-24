@@ -110,13 +110,16 @@
 	\renewcommand{\aa}{\textup{\AA}} % Angstrom
 	\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]\xspace}
 	\newcommand{\pka}{$pK_a$\xspace}
+	\newcommand{\kij}{$K_{ij}$\xspace}
 
 	% use cdots for unit separation with the SIunitx package
 	\sisetup{
   	inter-unit-product=\ensuremath{{\cdot}},
 	}
 	%SI unit declarations
+	\DeclareSIUnit\cal{cal}
 	\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
+	\DeclareSIUnit\kcalmol{\kilo\cal\per\mole}
 	\DeclareSIUnit\dc{\celsius}
 	\DeclareSIUnit\eh{\hartree}
 
