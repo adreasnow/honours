@@ -59,6 +59,9 @@
 		svg
 	}
 
+% enumerate with letters
+	\usepackage{enumitem}
+
 %disable warnings
 	\usepackage{silence}
 	\WarningFilter{latex}{Empty bibliography}
@@ -111,6 +114,7 @@
 	\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]\xspace}
 	\newcommand{\pka}{$pK_a$\xspace}
 	\newcommand{\kij}{$K_{ij}$\xspace}
+	\newcommand{\red}[1]{\color{red}#1\color{black}}
 
 	% use cdots for unit separation with the SIunitx package
 	\sisetup{
@@ -118,6 +122,7 @@
 	}
 	%SI unit declarations
 	\DeclareSIUnit\cal{cal}
+	\DeclareSIUnit\angstrom{\textup{\AA}}
 	\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
 	\DeclareSIUnit\kcalmol{\kilo\cal\per\mole}
 	\DeclareSIUnit\dc{\celsius}
