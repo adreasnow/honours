@@ -58,8 +58,8 @@ $$
 
 * when using force fields that utilise partial charges for LJ interactions, since the partial charges will include effects for dispersion, which are now being explicitly modelled using the Drude oscillator, it's necessary to remove a certain amount of charge from the charge of the atom. This is the $k_{ij}$ parameter and is calculated using SAPT to obtain the ratio of 
 
-\ce{LigParGen -> pdb + prm ->[psfgen] fftk ->[optimise params] fftk ->[manually update] il .ff}\\
-\ce{LigParGen -> .itp + .lmp ->[convertLigParGen.py] il .ff}
+\ce{LigParGen -> pdb + prm ->[psfgen] fftk ->[optimise params] fftk ->[manually update] il.ff}\\
+\ce{LigParGen -> .itp + .lmp ->[convertLigParGen.py] il.ff}
 
 ### 
 

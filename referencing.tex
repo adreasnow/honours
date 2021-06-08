@@ -1,4 +1,4 @@
-% !TEX root = report.tex
+% !TEX root = main.tex
 % sets up the referencing engine with a few important things. I personally prefere to have article titles and a doi in my references for ease of perousal, but this should be discussed with your supervisor. You can easily remove those sections from the command.
 
 % For Tetrahedron, Analytical Chemistry, or any other ACS hournal - chem-acs
@@ -21,5 +21,5 @@
 
 % superscript referencing
 \renewcommand{\cite}{\autocite}
-\newcommand{\citeay}[1]{\citeauthor{#1} (\citeyear{#1})}
+\newcommand{\citea}[1]{\citeauthor{#1}\cite{#1}}
 
