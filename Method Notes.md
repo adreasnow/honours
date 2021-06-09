@@ -1,6 +1,4 @@
-
-
-## MD
+MD
 
 ## Cyclisation of aminchalcone
 
@@ -58,19 +56,23 @@ $$
 
 * when using force fields that utilise partial charges for LJ interactions, since the partial charges will include effects for dispersion, which are now being explicitly modelled using the Drude oscillator, it's necessary to remove a certain amount of charge from the charge of the atom. This is the $k_{ij}$ parameter and is calculated using SAPT to obtain the ratio of 
 
+$$
+\begin{gather}
 \ce{LigParGen -> pdb + prm ->[psfgen] fftk ->[optimise params] fftk ->[manually update] il.ff}\\
 \ce{LigParGen -> .itp + .lmp ->[convertLigParGen.py] il.ff}
+\end{gather}
+$$
 
 ### 
 
 ## QM
 ### QM in general
 
-### Introduce Dethods (MP2/DFT)
+### Introduce Methods (MP2/DFT)
 
-### Introduce Dasis Dets
+### Introduce Basis Sets
 
-### Dispersion Dorrections
+### Dispersion Corrections
 
 
 ### Extrapolation to CBS

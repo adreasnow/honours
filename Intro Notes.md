@@ -46,10 +46,22 @@ Explains the impressive catalytic ability of enzymes, as they can stabilise the 
   * The substance is a liquid ($t_m$ and/or $t_g < 100^\circ C$ )
   * Contains ions and exhibits ionic conductivity
 
-* \subsubsection{imidazolium ILs}
-  in \ce{C2mim}, hydrogen bonding preferentially occurs with the \ce{C2} hydrogen, and above/below the imidazolium ring, over the \ce{C4} and \ce{C5} hydrogens \cite{Thar2009}
+### imidazolium ILs
+
+* In \ce{C2mim}, hydrogen bonding preferentially occurs with the \ce{C2} hydrogen, and above/below the imidazolium ring, over the \ce{C4} and \ce{C5} hydrogens \cite{Thar2009}
+
 
 ## Protic Ionic Liquids
+
+## H-Bonding
+
+> "It is to be stressed that the anisotropy of the hydrogen bonding interaction should be strong enough to ‘hold’ the ‘hydrogen bond’ at least at the zero point level, otherwise it is better to think of it as non-existent. At a given temperature, the thermal energy along a coordinate that can break the hydrogen bond should be below the barrier along that coordinate."
+
+> "A hydrogen bond is said to exist when: (1) there is evidence of a bond and (2) there is evidence that this bond specifically involves a hydrogen atom already bonded to another atom"
+>
+> \citea{Goswami2009}
+
+
 
 ### How Ionic is the IL
 
@@ -87,7 +99,7 @@ $$
 
 * $pK_A$ can also be determined by titration
 * The acidity seems to be of the IL pair and not of the acidic component alone \cite{Greaves2008a}
-* when using the same cation, the basicity of the anion (based on the $pK_A$) dictated the relative acidity, and thus the catalytic ability of the ion pair (tested with [bbim] and [Hbim] and \cite{Palimkar2003}
+* When using the same cation, the basicity of the anion (based on the $pK_A$) dictated the relative acidity, and thus the catalytic ability of the ion pair (tested with [bbim] and [Hbim] and \cite{Palimkar2003}
 
 ### Catalytically
 

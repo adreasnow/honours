@@ -1,31 +1,43 @@
 % !TEX root = main.tex
 \section{Introduction}
 \subsection{Ordered External Electric Fields as catalysts}
-- 12 principles of green chemistry - catalysis reducing waste - \citea{Anastas2010}
+Chemical reactivity as a field of study can be broadly reduced down to the dynamics of electrons, it therefore goes without saying that being able to manipulate electrostatics to control reactivity is a grand challenge of chemistry. This notion has been at the forefront of chemical research for as long as electron directing groups have been utilised to manipulate the strength of bonds, however the idea of influencing a reaction from a distance using electrostatics has only been explored in the past century.
 
--- harnessing the power of OEFFs for catalysis
+The methods to this approach were initially quite crude, involving ionic aggregates in solution to polarise reactant species\cite{Pocker1970}, though through the use of early \ai methods were able to be more specifically investigated. These later studies in the early 90s sought to understand solvent effects and more generally the effect of, localised electric fields\cite{Carbonell1991}, and as a result, a more concrete understanding of the mechanism of bond polarisation was identified\cite{Sini1991}, forming the foundations of the study of electric field catalysis.
+\begin{gather}
+\Psi_{A-B}=C_1(\ce{A-B})+C_2(\ce{A- B+})+C_3(\ce{A+B-})\label{eqn:ResonatingBonds}
+\end{gather}
+Following the work of \citea{Sini1991} who described the electron pair bond as the superposition of their spin paired covalent and two possible zwitterionic forms (as shown in \ref{eqn:ResonatingBonds}), and many subsequent studies that ill be outlined later in this report, \citeauthor{Shaik2020} formalised the "governing effects and rules for electric-field effects on chemical reacivity"\cite{Shaik2020}. Briefly summarised, the rules are as follows:
+\begin{enumerate}[label=(\alph*)]
+	\item An ordered external electric field (OEEF) that is oriented along a "bond axis" will polarise the bond, favouring one of the ionic species (\ref{eqn:ResonatingBonds}), eventually cleaving it heterolytically. As this polarisation occurs, the bond dipole increases, causing it to interact more strongly with the OEEF, stabilising the species in the process.
+	\item Every reaction possesses a "reaction axis" which follows the flow of electrons from reactant to product, through the transition state (TS).
+	\item Applying an OEEF along the "reaction axis" will stabilise the TS by increasing the bond ionicity (as per rule Shaik (a)) and, (symmetry allowing) \red{finish this off}
+	\item molecule will align with OEEF
+\end{enumerate}
 
-\red{Need to figure out a nice way to open the intro...}
+
+\vspace{1cm}
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
+\vspace{1cm}
+-- harnessing the power of OEEFs for catalysis
+
+
+- introduce polarisation
 
 - Bonds as linear combination of resonance contributors - \citea{Sini1991} \red{not sure if this is too fundamental to start with}
 
 \begin{gather}
-\ce{[AB <-> A+ B- <-> A- + B+]}\\
-\Psi_{A-B}=C_1(\ce{A-B})+C_2(\ce{A- + B+})+C_3(\ce{A+B-})
-\end{gather}
+\ce{[AB <-> A+ B- <-> A- B+]}\\
+\Psi_{A-B}=C_1(\ce{A-B})+C_2(\ce{A- B+})+C_3(\ce{A+B-})
+\end{gather}be aresounding yes!
 
 - Shaik's governing rules - \citea{Shaik2020}
-\begin{enumerate}[label=(\alph*)]
-	\item and OEFF oriented along a bond axis will polarise it- eventual cleavage
-	\item every reaction possess a "reaction axis"
-	\item OEFF along "reaction axis" will stabilise the TS
-	\item molecule will align with OEFF
-\end{enumerate}
+
 - EEF catalysis for tethered molecules (STM) - \citea{Aragones2016}
 
 - IEFs from enzymology - \citea{Warshel2006}
 
-\subsection{Scaling to Bulk}
+\subsection{Scaling OEEFs to Bulk Catalysis}
 - Marcus theory and reducing reorganisation energy - \citea{MarcusTheory}
 
 -- Breaking the solvation shell - \citea{Novak2016}
@@ -36,25 +48,39 @@
 \begin{gather}
 \Delta E=4.8\vec F\cdot\vec\mu\:\SI{}{\kcalmol}
 \end{gather}
-
 - Screening of the EEF by the solvent - \citea{Xu2020}, \citea{Shida2019}
 
 - Using pulsed EEFs to reduce electrochemical reactivity - \citea{Xu2020}, \citea{Shaik2020}
 
 - Specialist equipment required to mitigate polar solvent screening - \citea{Xu2020}, \citea{Shaik2020}, \citea{Shida2019}
 
-\subsection{ILs to create an internal EEF}
+\subsection{Creating IEFs from Ordered Ionic Liquids}
 - ILs - \citea{MacFarlane2007}
 
 - PILs - \citea{Greaves2008}
 
-- polarisability (leads to the IEF) \red{need ref}
+- polarisability (leads to the IEF) \red{need ref} - \citea{Brehm2012} (delocalisation of e-density)
 
-- ILs EEF to IEF - \citea{Wang2009}
+- ILs slow migration makes them good candidates for long lasting IEF bearers with pulsed EEFs \red{need ref}
+
+- ILs ordering in EEF - \citea{Zhao2012,Wang2009}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/OrderedILs.jpeg}
+    \caption{Snapshot from a molecular dynamics simulation of \il{C2mim}{BF4} without (left) and with an external electric field of \SI{1.14}{\va} (right). \ce{C2mim} is coloured green and \ce{BF4} is coloured red, Sourced from \citea{Zhao2012}.}
+    \label{fig:orderedILS}
+\end{figure}
 
 - proof of concept for ILs - \citea{Xu2020}
 
-- Adding h-bonding - \il{c2mim}{OAc} in equilibrium - \citea{Brehm2012} \red{re-read}
+- Adding h-bonding - \il{c2mim}{OAc} in equilibrium with carbene-acetate form - \citea{Brehm2012} \red{re-read}
+
+--H-bonding network in ILs - \citea{CanongiaLopes2006,}
+
+-- Ethyl chain to reduce the amount of nonpolar aggregation that would disrupt the H-bonding network - \citea{CanongiaLopes2006}
+
+-- Notion of \pka is broken in pure IL solutions, as it's an aqueous property, proton transfer happens "orders of magnitude" less - \citea{MacFarlane2007}
 
 - Power of IL intramolecular interactions
 
@@ -63,19 +89,18 @@
 
 \subsection{Computational Chemistry}
 \red{Just wing this section? you know this bit to death...}
-- QM
+- QM - \citea{Cramer2004}
 
-- DFT
+- DFT - \citea{Cramer2004}
 
--- empirical dispersion correction for accurate polarisation
---- dispersion is an 
+-- empirical dispersion correction for accurate polarisation - \citea{Izgorodina2014}
 
 - MD
 
 -- since large scale calcs aren't viable
 
--- pMD
+-- pMD to account for dispersion effects - \citea{Bedrov2019}
 
-\subsection{Aims}
+\subsection{Research Objectives}
 
 
