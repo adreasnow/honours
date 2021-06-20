@@ -1,189 +1,197 @@
 \documentclass[a4paper, 12pt]{article}
+%%%%%%%%%%%%%%%%%% for thesis %%%%%%%%%%%%%%%%%
+%\title{
+%	\includegraphics[width=0.4\textwidth]{Figures/monashLogo.pdf}~
+%	\\[2cm]
+%	Report Title
+%}
+%\author{\Large{Adrea Snow}\\\Large{Supervisor: Prof. Ekaterina Pas}\\[3cm]Monash School of Chemistry\\[2cm]June 2021}
+%\date{}
+
+%%%%%%%%%%%%%%%%%% for introductory essay %%%%%%%%%%%%%%%%%
 \title{
-	\includegraphics[width=0.4\textwidth]{Figures/monashLogo.pdf}~
-	\\[2cm]
-	Report Title
+	\vspace{-2.5cm}
+	Honours 2021 Introductory Essay\\
+	\large{Oriented External Electric Field Catalysis Within Ionic Liquids}
+	\vspace{-0.8cm}
 }
-\author{\Large{Adrea Snow}\\\Large{Supervisor: A/Prof. Ekaterina Pas}\\[3cm]Monash School of Chemistry\\[2cm]June 2021}
+\author{\small{Adrea Snow (31883893) - Supervisor: Prof. Ekaterina Pas}}
 \date{}
 
-% General packages
-	\usepackage[utf8]{inputenc}
-	\usepackage[english]{babel}
-	\usepackage[T1]{fontenc}
+%%%%%%%%%%% General packages %%%%%%%%%%% 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
 
-% For rotating pages to landscape
-	% \usepackage{pdflscape}
-	% \usepackage{rotating}
-	% to use, put the contents of the landscape page in a landscape environment; e.g. "\begin{landscape}  <content> \end{landscape} "
+%%%%%%%%%%%  For rotating pages to landscape %%%%%%%%%%% 
+%\usepackage{pdflscape}
+%\usepackage{rotating}
+% to use, put the contents of the landscape page in a landscape environment; e.g. "\begin{landscape}  <content> \end{landscape} "
 
-% For cleaning up the TOC
-	% ads TOC, LOF, LOT to TOC
-	\usepackage[numbib]{tocbibind}
-	%Puts dots in TOC
-	\usepackage{tocloft}
-	\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+%%%%%%%%%%%  For cleaning up the TOC %%%%%%%%%%% 
+\usepackage[numbib]{tocbibind} % ads TOC, LOF, LOT to TOC
 
-% Font packages
-	\usepackage{
-		times,
-		textcomp
-	}
+\usepackage{tocloft} % Puts dots in TOC
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
-% Maths packages
-	\usepackage[normalem]{ulem}
-	\usepackage{
-		amsmath,
-		amssymb,
-		amsfonts,
-	}
+%%%%%%%%%%%  Font packages %%%%%%%%%%% 
+\usepackage{
+	times,
+	textcomp
+}
 
-% Figure packages
-	\usepackage{
-		array,
-		graphicx,
-		wrapfig,
-		makecell,
-		siunitx
-	}
+%%%%%%%%%%%  Maths packages %%%%%%%%%%% 
+\usepackage[normalem]{ulem}
+\usepackage{
+	amsmath,
+	amssymb,
+	amsfonts,
+}
 
-% Table packages
-	\usepackage{
-		tabularx,
-		tabu,
-		float,
-		subcaption,
-		multirow,
-		color,
-		soul,
-		svg
-	}
+%%%%%%%%%%%  Figure packages %%%%%%%%%%% 
+\usepackage{
+	array,
+	graphicx,
+	wrapfig,
+	makecell,
+	siunitx,
+	svg
+}
 
-% enumerate with letters
-	\usepackage{enumitem}
+%%%%%%%%%%%  Table packages %%%%%%%%%%% 
+\usepackage{
+	tabularx,
+	tabu,
+	float,
+	subcaption,
+	multirow,
+	color,
+	soul
+}
 
-%disable warnings
-	\usepackage{silence}
-	\WarningFilter{latex}{Empty bibliography}
-	\WarningFilter{hyperref}{Token not allowed}  
+%%%%%%%%%%%  enumerate with letters %%%%%%%%%%% 
+\usepackage{enumitem}
 
-% Hyperlinking specifications and colours
-	\usepackage{hyperref}
-	\hypersetup{colorlinks=true, linktoc=all, linkcolor=blue, citecolor=blue, urlcolor=blue}
+%%%%%%%%%%%  disable warnings %%%%%%%%%%% 
+\usepackage{silence}
+\WarningFilter{latex}{Empty bibliography}
+\WarningFilter{hyperref}{Token not allowed}  
 
-% Referencing figures including names
-	\usepackage[capitalise, nameinlink, noabbrev]{cleveref}
-	\AtBeginDocument{\renewcommand{\ref}{\cref}}
+%%%%%%%%%%%  Hyperlinking specifications and colours %%%%%%%%%%% 
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linktoc=all, linkcolor=blue, citecolor=blue, urlcolor=blue}
 
-% Inserting PDF files
-	% \usepackage[final]{pdfpages}
+%%%%%%%%%%%  Referencing figures including names%%%%%%%%%%% 
+\usepackage[capitalise, nameinlink, noabbrev]{cleveref}
+\AtBeginDocument{\renewcommand{\ref}{\cref}}
+\crefname{enumi}{}{}
+%\usepackage[final]{pdfpages} % Inserting PDF files
 
-%Chemistry Stuff
-	% Chemistry equation typesetting stuff
-		\usepackage[version=4]{mhchem}
-	% Chemistry "\begin{scheme}" environment
-		% \usepackage{chemscheme}
-		% \crefname{scheme}{Scheme}{Schemes}
-	% Chemistry figures and molecules 
-		% \usepackage{chemfig}
+%%%%%%%%%%% Chemistry Stuff %%%%%%%%%%% 
+\usepackage[version=4]{mhchem} % Chemistry equation typesetting stuff
+% Chemistry "\begin{scheme}" environment
+	\usepackage{chemscheme} 
+	\crefname{scheme}{Scheme}{Schemes} 
 
-% puts section numbering into figure counters, e.g. "Figure 1.1" instead of "Figure 3"
+%%%%%%%%%%%  puts section numbering into figure counters, e.g. "Figure 1.1" instead of "Figure 3" %%%%%%%%%%% 
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
-% Margins and Layout
-	\usepackage[left=3cm, right=2cm, top=2cm, bottom=2cm]{geometry}
-	% Prevent hypenating words
-	\usepackage[none]{hyphenat}
-	% No paragraph indenting
-	\reversemarginpar
-	\setlength\parindent{0pt}
-	% 2x Linespacing
-	\renewcommand{\baselinestretch}{2}
-
-% allows for spaces after a new command
+%%%%%%%%%%%  Margins and Layout %%%%%%%%%%% 
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[none]{hyphenat} % Prevent hypenating words
+\setlength\parindent{0pt} % No paragraph indenting
+\usepackage{footmisc, setspace} % Footnote specific fonts
+\renewcommand\footnotelayout{\fontsize{10}{12}\selectfont} % Single line spacing for footnotes
+\renewcommand{\baselinestretch}{2} % 2x Linespacing
+%%%%%%%%%%%  allows for spaces after a new command %%%%%%%%%%% 
 	\usepackage{xspace}
 
-% Personal commands
-	\renewcommand{\bf}{\textbf}
-	\renewcommand{\it}{\textit}
-	\renewcommand{\epsilon}{\varepsilon}
-	\newcommand{\ra}{$\rightarrow$\xspace}
-	\renewcommand{\aa}{\textup{\AA}} % Angstrom
-	\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]\xspace}
-	\newcommand{\pka}{$pK_a$\xspace}
-	\newcommand{\kij}{$K_{ij}$\xspace}
-	\newcommand{\red}[1]{\color{red}#1\color{black}\xspace}
-	\newcommand{\ai}{\it{ab initio}\xspace}
+%%%%%%%%%%%  Personal commands %%%%%%%%%%% 
+\renewcommand{\bf}{\textbf}
+\renewcommand{\it}{\textit}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\ra}{$\rightarrow$\xspace}
+\renewcommand{\aa}{\textup{\AA}} % Angstrom
+\newcommand{\il}[2]{[\ce{#1}][\ce{#2}]\xspace}
+\newcommand{\pka}{$pK_a$\xspace}
+\newcommand{\kij}{$K_{ij}$\xspace}
+\newcommand{\ai}{\it{ab initio}\xspace}
+\newcommand{\bronsted}{Br{\o}nsted\xspace}
+\newcommand{\schrodinger}{Schr{\"o}dinger\xspace}
+\newcommand{\hb}{hydrogen bond\xspace}
 
-	% use cdots for unit separation with the SIunitx package
-	\sisetup{
-  	inter-unit-product=\ensuremath{{\cdot}},
-	}
-	%SI unit declarations
-	\DeclareSIUnit\cal{cal}
-	\DeclareSIUnit\angstrom{\textup{\AA}}
-	\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
-	\DeclareSIUnit\kcalmol{\kilo\cal\per\mole}
-	\DeclareSIUnit\dc{\celsius}
-	\DeclareSIUnit\eh{\hartree}
-	\DeclareSIUnit\va{\volt\per\angstrom}
+%%%%%%%%%%%  use cdots for unit separation with the SIunitx package %%%%%%%%%%% 
+\sisetup{
+	inter-unit-product=\ensuremath{{\cdot}},
+}
+%SI unit declarations
+\DeclareSIUnit\cal{cal}
+\DeclareSIUnit\angstrom{\textup{\AA}}
+\DeclareSIUnit\kjmol{\kilo\joule\per\mole}
+\DeclareSIUnit\kcalmol{\kilo\cal\per\mole}
+\DeclareSIUnit\dc{\celsius}
+\DeclareSIUnit\eh{\hartree}
+\DeclareSIUnit\va{\volt\per\angstrom}
 
+%%%%%%%%%%%  Review and notes %%%%%%%%%%% 
+\usepackage[textsize=footnotesize]{todonotes}
+\setlength{\marginparwidth}{3.5cm}
+\usepackage{silence}% silence specific warnings from output
+% These are the warnings to slience
+	\WarningFilter{latex}{Marginpar on page}
+	\WarningFilter{todonotes}{The length marginparwidth}
+\newcommand{\note}[1]{\color{magenta}#1\color{black}} % creates a \note{} command that makes the contents pink
+\newcommand{\review}{\todo[color=cyan]}
+% \newcommand{\note}{\todo[color=magenta]}
+\reversemarginpar
+\renewcommand{\todo}[1]{\color{red}#1\color{black}\xspace}
 
-% Review and notes
-	\usepackage[textsize=footnotesize]{todonotes}
-	\setlength{\marginparwidth}{3.5cm}
-	% silence specific warnings from output
-	\usepackage{silence}
-		% These are the warnings to slience
-		\WarningFilter{latex}{Marginpar on page}
-		\WarningFilter{todonotes}{The length marginparwidth}
-	% creates a \note{} command that makes the contents pink
-	\newcommand{\note}[1]{\color{magenta}#1\color{black}}
-	% \newcommand{\note}{\todo[color=magenta]}
-	\newcommand{\review}{\todo[color=cyan]}
-	\reversemarginpar
+%%%%%%%%%%%  Referencing %%%%%%%%%%% 
+\input{referencing}
 
-% Referencing
-	\input{referencing}
-
+%%%%%%%%%%% Other %%%%%%%%%%% 
+\input{latexFunctions}
+\hypersetup{footnotecolor=red}
 \newcounter{romancounter}
 
 \begin{document}
 	%TC:ignore % This tells the word counter to ignore from here
-	\pagenumbering{Roman} % uses roman numerls for front matter page numbering
+%	\pagenumbering{Roman} % uses roman numerls for front matter page numbering
 	\maketitle
-	% \newpage
-	% \tableofcontents
-	% \newpage
-	% \listoffigures
-	% \newpage
-	% \listoftables
-	% \newpage
-	% \input{abbreviations}
-	% \newpage
-	% \input{abstract}
-	\newpage
-	\setcounter{romancounter}{\number\value{page}}%
-	\cleardoublepage\pagenumbering{arabic} % uses numerical numbering for main matter page numbering
+%	\newpage
+%	\tableofcontents
+%	\newpage
+%	\listoffigures
+%	\newpage
+%	\listoftables
+%	\newpage
+%	\input{abbreviations}
+%	\newpage
+%	\input{abstract}
+%	\newpage
+%	\setcounter{romancounter}{\number\value{page}}%
+%	\cleardoublepage\pagenumbering{arabic} % uses numerical numbering for main matter page numbering
 	%TC:endignore % This tells the word counter to start counting form here
 	\input{introduction}
-	% \newpage
-	% \input{method}
-	% \newpage
-	% \input{results}
-	% \newpage
-	% \input{conclusion}
+%	\newpage
+%	\input{method}
+%	\newpage
+%	\input{results}
+%	\newpage
+%	\input{conclusion}
 	%TC:ignore % This tells the word counter to ignore from here
-	\newpage
-	\printbibliography[title={References},heading=bibnumbered] % prints the references section, titled "References" with a section number
-	% \newpage
-	% \pagenumbering{Roman} 
-	% \setcounter{page}{\number\value{romancounter}}
-	% \input{acknowledgements}
-	% \newpage
-	% \addcontentsline{toc}{section}{Appendix}
-	% \input{appendix}
+%	\newpage
+%	\renewcommand{\baselinestretch}{1.5}
+%	\printbibliography[title={References},heading=bibnumbered] % prints the references section, titled "References" with a section number
+		\printbibliography[title={References}] % prints the references section, titled "References" with a section number
+%	\newpage
+%	\pagenumbering{Roman} 
+%	\setcounter{page}{\number\value{romancounter}}
+%	\input{acknowledgements}
+%	\newpage
+%	\addcontentsline{toc}{section}{Appendix}
+%	\input{appendix}
 	%TC:endignore % This tells the word counter to start counting form here
 \end{document}

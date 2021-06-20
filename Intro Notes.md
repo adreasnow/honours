@@ -1,7 +1,3 @@
-
-
-## Structure
-
 ## Computational Chemistry
 
 
@@ -88,7 +84,7 @@ $$
 
 ### Acidity
 
-* $pK_As$ are based on proton lability in aqueous environments and aren't representative of the proton dynamics in bulk IL solution. using aqueous $pK_A$s results in proton dissociations that are "orders of magnitude lower than one would predict"\cite{Kar2019}
+* $pK_As$ are based on proton lability in aqueous environments and aren't representative of the proton dynamics in bulk IL solution. using aqueous $pK_A$s results in proton dissociations that are "orders of magnitude lower than one would predict"\cite{MacFarlane2007}
 * Hammett method for determining $pK_A$
 
 $$
