@@ -10,6 +10,6 @@ To use the notebooks form this repo, you'll need:
 * pandas
 * csv
 
-Yes, I know it's a mess of packages, but these notebooks have been slowly evolving over the year and and aren't indicative of how cleanly I actually work.
+*Yes, I know it's a mess of packages, but these notebooks have been slowly evolving over the year and and aren't indicative of how cleanly I actually work.*
 
 To run the OEEF notebooks, you will need to have the included data folder in the same directory.
