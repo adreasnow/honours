@@ -13,3 +13,6 @@ To use the notebooks form this repo, you'll need:
 *Yes, I know it's a mess of packages, but these notebooks have been slowly evolving over the year and and aren't indicative of how cleanly I actually work.*
 
 To run the OEEF notebooks, you will need to have the included data folder in the same directory.
+
+The pymol-scripts folder only has a couple of scriots that I've used to generate the .pse files, from the .csv files and .xyz geoms:
+* pymolEfield.py - a funciton to generate the spheres representation of the OEEF scans
