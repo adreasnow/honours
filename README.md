@@ -22,6 +22,8 @@ the `pymolEfield.py` script has also had a gui developed for it, after a fun nig
 
 ![plugin_pic.png](plugin_pic.png)
 
+This produces figures that look like this:
+
 | ![catscan](pymol-scripts/examples/catscan.png) | ![rsscan](pymol-scripts/examples/rssepscan.png) |
 | :------: | :------: |
 
