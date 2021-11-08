@@ -25,13 +25,15 @@ the `pymolEfield.py` script has also had a gui developed for it, after a fun nig
 The format of the CSV file is as follows:
 * First row for headings (gets ignored)
 * Columns with the following data
-    * x component of OEEF (au)
-    * y component of OEEF (au)
-    * z component of OEEF (au)
+    * x component of electric field
+    * y component of electric field
+    * z component of electric field
     * e_kjmol of the perturbation (perturbed - unperturbed)
     * dipole(x) (D)
     * dipole(y) (D)
     * dipole(z) (D)
+
+Electric fields need to be in atomic units following physics notation (pointing form positive to negative) and dipoles need to be in Debye, following standard chemistry notation of poiinting from negative to positive.
 
 e.g.:
 
@@ -40,3 +42,5 @@ e.g.:
 | 0.00E+00 | 0.00E+00 | 0.00E+00 |     0      | 2.84909414 | -4.989243  | 1.57583802 |
 | 1.94E-03 | 0.00E+00 | 0.00E+00 | 3.54743169 | 0.67670253 | -4.5698034 | 1.77719687 |
 | 1.78E-03 | 7.91E-04 | 0.00E+00 | -0.574705  | 1.01374995 | -5.158874  | 1.74510839 |
+
+An example Psi4 script to perturb a molecule based on a list of OEEF vectors has been provided in the `pymol-scripts folder.
