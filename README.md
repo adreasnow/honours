@@ -16,3 +16,8 @@ To run the OEEF notebooks, you will need to have the included data folder in the
 
 The pymol-scripts folder only has a couple of scriots that I've used to generate the .pse files, from the .csv files and .xyz geoms:
 * pymolEfield.py - a funciton to generate the spheres representation of the OEEF scans
+
+#### Plugin
+the `pymolEfield.py` script has also had a gui developed for it, after a fun night hacking together some code with friends, and is available in the `pymol-scripts` folder.
+
+![plugin_pic.png](plugin_pic.png)
