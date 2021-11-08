@@ -21,3 +21,16 @@ The pymol-scripts folder only has a couple of scriots that I've used to generate
 the `pymolEfield.py` script has also had a gui developed for it, after a fun night hacking together some code with friends, and is available in the `pymol-scripts` folder.
 
 ![plugin_pic.png](plugin_pic.png)
+
+The format of the CSV file is as follows:
+* First row for headings (gets ignored)
+* Columns with the following data
+    * x component of OEEF (au)
+    * y component of OEEF (au)
+    * z component of OEEF (au)
+    * e_kjmol of the perturbation (perturbed - unperturbed)
+    * dipole(x) (D)
+    * dipole(y) (D)
+    * dipole(z) (D)
+
+$\Delta$
