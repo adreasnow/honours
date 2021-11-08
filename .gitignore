@@ -9,4 +9,6 @@
 !data/*/*/*.csv
 !pymol-scripts
 !pymol-scripts/pymolEfield.py
+!pymol-scripts/pymolEfieldPlugin
+!pymol-scripts/pymolEfieldPlugin/*
 *.DS_Store
