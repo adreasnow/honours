@@ -18,9 +18,12 @@ The pymol-scripts folder only has a couple of scriots that I've used to generate
 * pymolEfield.py - a funciton to generate the spheres representation of the OEEF scans
 
 #### Plugin
-the `pymolEfield.py` script has also had a gui developed for it, after a fun night hacking together some code with friends, and is available in the `pymol-scripts` folder.
+the `pymolEfield.py` script has also had a gui developed for it, after a fun night hacking together some code with friends, and is available in the `pymol-scripts/examples` folder.
 
 ![plugin_pic.png](plugin_pic.png)
+
+| ![catscan](pymol-scripts/examples/catscan.png) | ![rsscan](pymol-scripts/examples/rssepscan.png) |
+| :------: | :------: |
 
 The format of the CSV file is as follows:
 * First row for headings (gets ignored)
@@ -43,4 +46,5 @@ e.g.:
 | 1.94E-03 | 0.00E+00 | 0.00E+00 | 3.54743169 | 0.67670253 | -4.5698034 | 1.77719687 |
 | 1.78E-03 | 7.91E-04 | 0.00E+00 | -0.574705  | 1.01374995 | -5.158874  | 1.74510839 |
 
-An example Psi4 script to perturb a molecule based on a list of OEEF vectors has been provided in the `pymol-scripts folder.
+
+An example Psi4 script to perturb a molecule based on a list of OEEF vectors has been provided in the `pymol-scripts/examples` folder, along with osme example .csv files

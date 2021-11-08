@@ -10,5 +10,6 @@
 !pymol-scripts
 !pymol-scripts/*
 !pymol-scripts/pymolEfieldPlugin/*
+!pymol-scripts/examples/*
 !plugin_pic.png
 *.DS_Store
