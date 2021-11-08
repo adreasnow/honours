@@ -20,9 +20,7 @@ The pymol-scripts folder only has a couple of scriots that I've used to generate
 #### Plugin
 the `pymolEfield.py` script has also had a gui developed for it, after a fun night hacking together some code with friends, and is available in the `pymol-scripts` folder.
 
-<div style="width: 60%">
 ![plugin_pic.png](plugin_pic.png)
-</div>
 
 The format of the CSV file is as follows:
 * First row for headings (gets ignored)
