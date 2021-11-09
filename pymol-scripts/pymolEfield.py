@@ -1,7 +1,6 @@
 import numpy as np
 from csv import reader
 import colorsys
-import math
 
 from pymol.cgo import *
 from pymol import vfont
